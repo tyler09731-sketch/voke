@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F7941D">
+<meta name="description" content="e-Mola Crédito — Empréstimos rápidos e seguros em Moçambique.">
+<title>e-Mola Crédito | Empréstimos Rápidos Moçambique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --or:#F7941D; --or-deep:#D96F00; --or-dark:#A34A00; --or-light:#FFB84D; --amber:#FFC857;
+  --cream:#FFF8F0; --white:#fff; --dark:#1a1a1a; --muted:#6b6b6b; --border:#f0e6da;
+  --err:#d32f2f; --ok:#2e7d32;
+  --grad:linear-gradient(135deg,#F7941D 0%,#E8841A 50%,#D96F00 100%);
+  --shadow:0 12px 36px rgba(217,111,0,.18); --shadow-lg:0 24px 60px rgba(217,111,0,.28);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Poppins',system-ui,sans-serif;background:var(--white);color:var(--dark);line-height:1.6;overflow-x:hidden;animation:fadeIn .5s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+.topbar{background:var(--grad);color:#fff;padding:10px 5%;display:flex;justify-content:center;gap:22px;font-size:11px;font-weight:600;flex-wrap:wrap}
+.topbar span{display:inline-flex;align-items:center;gap:5px;opacity:.95}
+
+header{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding:14px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:1000;box-shadow:0 4px 20px rgba(217,111,0,.08);border-bottom:3px solid var(--or);gap:14px}
+.logo{font-size:26px;font-weight:900;text-decoration:none;letter-spacing:-.8px;display:flex;align-items:center;gap:2px;flex-shrink:0}
+.logo .e{color:var(--or-deep)}
+.logo .mola{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.nav-desktop{display:flex;align-items:center;gap:26px}
+.nav-desktop a{color:var(--dark);text-decoration:none;font-weight:700;font-size:13px;transition:color .2s;position:relative}
+.nav-desktop a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--or);transition:width .3s}
+.nav-desktop a:hover{color:var(--or-deep)}
+.nav-desktop a:hover::after{width:100%}
+.nav-cta{background:var(--grad);color:#fff!important;padding:11px 26px;border-radius:50px;font-size:12px!important;box-shadow:0 6px 18px rgba(217,111,0,.35);transition:all .25s!important}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(217,111,0,.45);filter:brightness(1.05)}
+.menu-btn{display:none;background:none;border:none;font-size:28px;cursor:pointer;color:var(--or-deep)}
+
+.lang-switch{display:flex;gap:5px;flex-shrink:0}
+.lang-btn{background:transparent;border:1.5px solid var(--border);border-radius:50px;padding:6px 12px;font-size:11px;font-weight:800;font-family:inherit;cursor:pointer;color:var(--muted);transition:all .2s;display:inline-flex;align-items:center;gap:4px}
+.lang-btn.active{background:var(--grad);border-color:var(--or);color:#fff;box-shadow:0 4px 10px rgba(217,111,0,.25)}
+.lang-btn:hover:not(.active){border-color:var(--or);color:var(--or-deep)}
+
+.mobile-nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:3px solid var(--or);box-shadow:0 12px 32px rgba(217,111,0,.15);z-index:999}
+.mobile-nav.open{display:block;animation:slideDown .3s ease}
+@keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+.mobile-nav a{display:block;padding:15px 5%;color:var(--dark);text-decoration:none;font-weight:700;font-size:14px;border-bottom:1px solid var(--border)}
+.mobile-nav a:hover{background:var(--cream);color:var(--or-deep)}
+.mobile-nav .m-cta{margin:14px 5%;text-align:center;background:var(--grad);color:#fff;padding:15px;border-radius:50px;border-bottom:none;font-weight:800;box-shadow:0 6px 18px rgba(217,111,0,.3)}
+
+.hero{background:var(--grad);color:#fff;padding:90px 5% 100px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.22) 0%,transparent 70%);border-radius:50%;animation:float 8s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-25%;left:-8%;width:520px;height:520px;background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 70%);border-radius:50%;animation:float 10s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
+.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.16);border:1.5px solid rgba(255,255,255,.32);padding:10px 22px;border-radius:50px;font-size:12px;font-weight:700;margin-bottom:22px;backdrop-filter:blur(10px)}
+.hero h1{font-size:3.2rem;font-weight:900;margin-bottom:16px;letter-spacing:-1.3px;line-height:1.08}
+.hero h1 .hl{color:#FFE9B8;text-shadow:0 2px 20px rgba(255,233,184,.3)}
+.hero p{font-size:1.12rem;opacity:.96;margin-bottom:34px;max-width:580px;margin-left:auto;margin-right:auto}
+.hero-stats{display:flex;justify-content:center;gap:44px;margin-bottom:36px;flex-wrap:wrap}
+.stat-item{text-align:center}
+.stat-item .num{font-size:1.9rem;font-weight:900;color:#FFE9B8}
+.stat-item .lbl{font-size:11px;opacity:.82;margin-top:2px;font-weight:600;letter-spacing:.03em}
+.hero-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-hero-1{background:#fff;color:var(--or-deep);padding:17px 38px;border-radius:50px;text-decoration:none;font-weight:900;font-size:13px;transition:all .25s;box-shadow:0 10px 28px rgba(0,0,0,.18);border:none;cursor:pointer;font-family:inherit}
+.btn-hero-1:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.25)}
+.btn-hero-2{background:transparent;color:#fff;padding:17px 38px;border-radius:50px;text-decoration:none;font-weight:800;font-size:13px;border:2px solid rgba(255,255,255,.5);transition:all .25s;cursor:pointer;font-family:inherit}
+.btn-hero-2:hover{background:rgba(255,255,255,.15);border-color:#fff;transform:translateY(-3px)}
+
+.s-label{text-align:center;color:var(--or-deep);font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.22em;margin-bottom:8px}
+.s-title{text-align:center;font-size:2.3rem;font-weight:900;margin-bottom:10px;color:var(--dark);letter-spacing:-.9px}
+.s-sub{text-align:center;color:var(--muted);font-size:.95rem;margin-bottom:44px;max-width:580px;margin-left:auto;margin-right:auto}
+
+.calc-sec{padding:80px 5%;background:var(--cream)}
+.calc-card{max-width:640px;margin:0 auto;background:#fff;border-radius:24px;padding:38px 32px;box-shadow:var(--shadow);border:2px solid var(--border)}
+.calc-card h3{font-size:1.05rem;font-weight:800;color:var(--or-dark);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.calc-card h3 .dot{width:8px;height:8px;background:var(--or);border-radius:50%;display:inline-block}
+.calc-row{margin-bottom:26px}
+.calc-label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:700;color:var(--dark);margin-bottom:10px}
+.calc-label .val{color:var(--or-deep);font-weight:900;font-size:14px}
+input[type=range]{-webkit-appearance:none;width:100%;height:8px;border-radius:5px;background:linear-gradient(90deg,var(--or) 0%,var(--or) var(--pct,50%),#e8ddd0 var(--pct,50%));outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--or);box-shadow:0 4px 14px rgba(217,111,0,.4);cursor:pointer;transition:transform .2s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+input[type=range]::-moz-range-thumb{width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--or);box-shadow:0 4px 14px rgba(217,111,0,.4);cursor:pointer}
+.dur-chips{display:flex;gap:10px;flex-wrap:wrap}
+.dur-chip{flex:1;min-width:70px;padding:12px;border:2px solid var(--border);border-radius:14px;text-align:center;font-weight:800;font-size:13px;cursor:pointer;transition:all .2s;background:#fff;font-family:inherit;color:var(--dark);display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1.2}
+.dur-chip .rate{font-size:9.5px;font-weight:700;opacity:.65;letter-spacing:.02em}
+.dur-chip.active{background:var(--grad);color:#fff;border-color:var(--or);box-shadow:0 6px 16px rgba(217,111,0,.3)}
+.dur-chip.active .rate{opacity:.9}
+.dur-chip:hover:not(.active){border-color:var(--or)}
+
+.calc-result{background:linear-gradient(135deg,var(--or-dark),var(--or-deep));border-radius:18px;padding:24px;color:#fff;margin-top:8px}
+.calc-result .cr-row{display:flex;justify-content:space-between;font-size:13.5px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.15)}
+.calc-result .cr-row:last-child{border-bottom:none;padding-top:14px;margin-top:6px;font-size:16px;font-weight:900}
+.calc-result .cr-row span:first-child{opacity:.82;font-weight:600}
+.calc-result .cr-row span:last-child{font-weight:800}
+.calc-result .cr-row.total span:last-child{color:#FFE9B8;font-size:1.35rem}
+
+.btn-calc{width:100%;background:#fff;color:var(--or-deep);border:none;padding:18px;border-radius:50px;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;font-family:inherit;margin-top:22px;box-shadow:0 8px 22px rgba(0,0,0,.15);transition:all .25s}
+.btn-calc:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.22);background:var(--cream)}
+
+.plans-sec{padding:80px 5%;background:var(--white)}
+.p-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;max-width:1150px;margin:0 auto}
+.p-card{background:#fff;border:2px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.p-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:var(--grad);transform:scaleX(0);transition:transform .35s;transform-origin:left}
+.p-card:hover::before{transform:scaleX(1)}
+.p-card:hover{border-color:var(--or);box-shadow:var(--shadow);transform:translateY(-6px)}
+.p-card.pop{border-color:var(--or);border-width:2.5px;background:linear-gradient(180deg,#fff 0%,var(--cream) 100%)}
+.p-card.pop::before{transform:scaleX(1)}
+.p-badge{display:inline-block;background:var(--grad);color:#fff;padding:5px 14px;border-radius:50px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;box-shadow:0 4px 10px rgba(217,111,0,.25)}
+.p-badge.hot{background:linear-gradient(135deg,#FFC857,#F7941D);color:#5a2f00}
+.p-amount{font-size:2.1rem;font-weight:900;color:var(--or-deep);margin-bottom:4px;letter-spacing:-.03em;line-height:1.1}
+.p-amount small{font-size:1rem;color:var(--muted);font-weight:700;display:block;margin-top:2px}
+.p-repay{font-size:1.05rem;font-weight:800;color:var(--dark);margin-bottom:6px}
+.p-repay small{font-size:.75rem;font-weight:600;color:var(--muted);display:block}
+.p-list{list-style:none;text-align:left;margin:18px 0 22px;font-size:12.5px;color:var(--muted)}
+.p-list li{padding:6px 0;display:flex;align-items:center;gap:8px}
+.p-list li::before{content:"✓";color:var(--ok);font-weight:900;font-size:13px}
+.btn-p{width:100%;background:var(--grad);color:#fff;border:none;padding:15px;border-radius:50px;font-weight:800;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;font-family:inherit;transition:all .25s;box-shadow:0 6px 16px rgba(217,111,0,.28)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(217,111,0,.4);filter:brightness(1.05)}
+
+.trust-sec{padding:70px 5%;background:linear-gradient(135deg,var(--cream),#fff)}
+.trust-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+.trust-card{background:#fff;padding:28px 22px;border-radius:18px;text-align:center;border:2px solid transparent;transition:all .3s;box-shadow:0 2px 10px rgba(217,111,0,.06)}
+.trust-card:hover{border-color:var(--or);box-shadow:var(--shadow);transform:translateY(-4px)}
+.trust-ic{width:58px;height:58px;background:var(--grad);border-radius:16px;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.5rem;box-shadow:0 8px 20px rgba(217,111,0,.28)}
+.trust-card h3{font-size:.95rem;font-weight:800;margin-bottom:6px;color:var(--or-dark)}
+.trust-card p{color:var(--muted);font-size:.83rem;line-height:1.55}
+
+.how-sec{padding:80px 5%;background:linear-gradient(135deg,var(--or-dark) 0%,var(--or-deep) 100%);color:#fff;position:relative;overflow:hidden}
+.how-sec::before{content:'';position:absolute;top:-50%;right:-20%;width:700px;height:700px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);border-radius:50%}
+.how-sec .s-label{color:#FFE9B8}
+.how-sec .s-title{color:#fff}
+.how-sec .s-sub{color:rgba(255,255,255,.78)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:980px;margin:0 auto;position:relative;z-index:1}
+.step{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);padding:30px 20px;border-radius:18px;text-align:center;transition:all .3s;backdrop-filter:blur(10px)}
+.step:hover{background:rgba(255,255,255,.15);transform:translateY(-4px);border-color:rgba(255,255,255,.3)}
+.step-n{width:46px;height:46px;background:#fff;color:var(--or-deep);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px;margin:0 auto 14px;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.step h3{font-size:.95rem;font-weight:800;margin-bottom:6px}
+.step p{color:rgba(255,255,255,.72);font-size:.83rem}
+
+.test-sec{padding:80px 5%;background:var(--white)}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:1050px;margin:0 auto}
+.test-card{background:var(--cream);border-radius:18px;padding:28px 24px;border:1.5px solid var(--border);position:relative;transition:all .3s}
+.test-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--or)}
+.test-card::before{content:'"';position:absolute;top:8px;right:22px;font-size:5rem;font-weight:900;color:var(--or);opacity:.15;font-family:Georgia,serif;line-height:1}
+.test-stars{color:var(--or);font-size:1rem;letter-spacing:2px;margin-bottom:12px}
+.test-text{font-size:.9rem;color:var(--dark);line-height:1.7;margin-bottom:16px;font-style:italic}
+.test-author{display:flex;align-items:center;gap:12px}
+.test-avatar{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:16px;flex-shrink:0}
+.test-name{font-weight:800;font-size:13px;color:var(--dark)}
+.test-loc{font-size:11px;color:var(--muted);font-weight:600}
+
+.faq-sec{padding:80px 5%;background:var(--cream)}
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{background:#fff;border-radius:14px;margin-bottom:12px;border:2px solid var(--border);overflow:hidden;transition:border-color .25s}
+.faq-item:hover,.faq-item.open{border-color:var(--or)}
+.faq-q{width:100%;background:none;border:none;padding:18px 22px;text-align:left;font-family:inherit;font-weight:800;font-size:14px;color:var(--dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;transition:color .2s}
+.faq-q:hover{color:var(--or-deep)}
+.faq-q .chev{width:24px;height:24px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--or-deep);transition:transform .3s;flex-shrink:0;font-weight:900}
+.faq-item.open .chev{transform:rotate(180deg);background:var(--or);color:#fff}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 22px;color:var(--muted);font-size:13.5px;line-height:1.7}
+.faq-item.open .faq-a{max-height:300px;padding:0 22px 20px}
+
+.final-cta{padding:70px 5%;background:var(--grad);color:#fff;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.15) 0%,transparent 70%);border-radius:50%}
+.final-cta h2{font-size:2.1rem;font-weight:900;margin-bottom:12px;letter-spacing:-.8px;position:relative;z-index:1}
+.final-cta p{font-size:1rem;opacity:.95;margin-bottom:28px;position:relative;z-index:1;max-width:520px;margin-left:auto;margin-right:auto}
+.final-cta .btn-final{background:#fff;color:var(--or-deep);padding:18px 44px;border-radius:50px;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.05em;cursor:pointer;border:none;font-family:inherit;box-shadow:0 10px 28px rgba(0,0,0,.22);transition:all .25s;position:relative;z-index:1}
+.final-cta .btn-final:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.3);background:var(--cream)}
+
+footer{background:#2a1608;color:#fff;padding:56px 5% 24px}
+.ft-grid{max-width:1050px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:34px;margin-bottom:34px}
+.ft-brand p{color:rgba(255,255,255,.55);font-size:12px;margin-top:12px;line-height:1.8}
+.ft-col h4{font-size:.8rem;font-weight:900;margin-bottom:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--or-light)}
+.ft-col ul{list-style:none}
+.ft-col ul li{margin-bottom:8px}
+.ft-col ul li a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;transition:color .2s}
+.ft-col ul li a:hover{color:var(--or-light)}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.ft-bottom p{font-size:11px;color:rgba(255,255,255,.45)}
+.ft-badges{display:flex;gap:16px;font-size:11px;color:rgba(255,255,255,.5);font-weight:700}
+
+.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);padding:12px 16px;box-shadow:0 -8px 28px rgba(0,0,0,.12);border-top:3px solid var(--or);z-index:999;display:none}
+.sticky-cta button{width:100%;background:var(--grad);color:#fff;border:none;padding:15px;border-radius:50px;font-weight:900;font-size:13px;text-transform:uppercase;font-family:inherit;box-shadow:0 6px 18px rgba(217,111,0,.35);cursor:pointer}
+
+@media (max-width:768px){
+  .nav-desktop{display:none}
+  .menu-btn{display:block}
+  .hero{padding:64px 5% 72px}
+  .hero h1{font-size:2.3rem}
+  .s-title{font-size:1.7rem}
+  .p-grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}
+  .steps{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .ft-bottom{flex-direction:column;text-align:center}
+  .sticky-cta{display:block}
+  body{padding-bottom:80px}
+}
+@media (max-width:480px){
+  .hero h1{font-size:1.9rem}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .hero-btns button{width:100%}
+  .steps{grid-template-columns:1fr}
+  .hero-stats{gap:26px}
+  .calc-card{padding:28px 20px}
+  .dur-chips{gap:8px}
+  .dur-chip{padding:10px 6px;font-size:12px}
+  .lang-switch{margin-left:auto}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span data-i18n="tb.country">🇲🇿 Moçambique</span>
+  <span data-i18n="tb.speed">⚡ Aprovação em Minutos</span>
+  <span data-i18n="tb.secure">🔒 Seguro</span>
+  <span data-i18n="tb.rate">💰 Taxas Transparentes</span>
+</div>
+
+<header>
+  <a class="logo" href="index.html"><span class="e">e-</span><span class="mola">Mola</span></a>
+  <nav class="nav-desktop">
+    <a href="#simular" data-i18n="nav.sim">Simular</a>
+    <a href="#planos" data-i18n="nav.plans">Empréstimos</a>
+    <a href="#como" data-i18n="nav.how">Como Funciona</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="#simular" class="nav-cta" data-i18n="nav.cta">Solicitar</a>
+  </nav>
+  <div class="lang-switch">
+    <button class="lang-btn active" data-lang="pt" onclick="setLang('pt')">🇲🇿 PT</button>
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
+  </div>
+  <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  <div class="mobile-nav" id="mobNav">
+    <a href="index.html" data-i18n="nav.home">Início</a>
+    <a href="#simular" onclick="closeMenu()" data-i18n="nav.sim">Simular</a>
+    <a href="#planos" onclick="closeMenu()" data-i18n="nav.plans">Empréstimos</a>
+    <a href="#como" onclick="closeMenu()" data-i18n="nav.how">Como Funciona</a>
+    <a href="#faq" onclick="closeMenu()" data-i18n="nav.faq">FAQ</a>
+    <a href="#simular" class="m-cta" onclick="closeMenu()" data-i18n="nav.cta">Solicitar</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge" data-i18n="hero.badge">🇲🇿 Moçambique · Meu cell, minha mola</div>
+    <h1><span data-i18n="hero.title1">Empréstimos Rápidos com a Sua</span> <span class="hl" data-i18n="hero.title2">Mola e-Mola</span></h1>
+    <p data-i18n="hero.sub">Peça o seu empréstimo em minutos. Taxas de 10% a 35%, sem surpresas, sem burocracia. Aprovação via e-Mola.</p>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="num">50K+</div><div class="lbl" data-i18n="hero.stat1">Clientes</div></div>
+      <div class="stat-item"><div class="num">5 min</div><div class="lbl" data-i18n="hero.stat2">Aprovação</div></div>
+      <div class="stat-item"><div class="num">500 MZN</div><div class="lbl" data-i18n="hero.stat3">A partir de</div></div>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-hero-1" onclick="location.href='#simular'" data-i18n="hero.btn1">Simular Empréstimo</button>
+      <button class="btn-hero-2" onclick="location.href='#planos'" data-i18n="hero.btn2">Ver Planos →</button>
+    </div>
+  </div>
+</section>
+
+<section class="calc-sec" id="simular">
+  <div class="s-label" data-i18n="calc.label">Simulador</div>
+  <h2 class="s-title" data-i18n="calc.title">Calcule o Seu Empréstimo</h2>
+  <p class="s-sub" data-i18n="calc.sub">Ajuste o valor e o prazo. Veja imediatamente o total a pagar.</p>
+
+  <div class="calc-card">
+    <div class="calc-row">
+      <h3><span class="dot"></span><span data-i18n="calc.h1">Valor do Empréstimo</span></h3>
+      <div class="calc-label"><span data-i18n="calc.how">Quanto precisa?</span><span class="val" id="amountLbl">5.000 MZN</span></div>
+      <input type="range" id="amountSlider" min="500" max="50000" step="500" value="5000">
+    </div>
+
+    <div class="calc-row">
+      <h3><span class="dot"></span><span data-i18n="calc.h2">Prazo de Pagamento</span></h3>
+      <div class="dur-chips" id="durChips">
+        <button class="dur-chip" data-days="7" onclick="setDur(this,7)"><span data-i18n="calc.d7">7 dias</span><span class="rate">10%</span></button>
+        <button class="dur-chip active" data-days="14" onclick="setDur(this,14)"><span data-i18n="calc.d14">14 dias</span><span class="rate">15%</span></button>
+        <button class="dur-chip" data-days="30" onclick="setDur(this,30)"><span data-i18n="calc.d30">30 dias</span><span class="rate">22%</span></button>
+        <button class="dur-chip" data-days="60" onclick="setDur(this,60)"><span data-i18n="calc.d60">60 dias</span><span class="rate">35%</span></button>
+      </div>
+    </div>
+
+    <div class="calc-result">
+      <div class="cr-row"><span data-i18n="calc.rAmount">Valor solicitado</span><span id="rAmount">5.000 MZN</span></div>
+      <div class="cr-row"><span id="rInterestLabel">Juros (15%)</span><span id="rInterest">750 MZN</span></div>
+      <div class="cr-row"><span data-i18n="calc.rDur">Prazo</span><span id="rDur">14 dias</span></div>
+      <div class="cr-row total"><span data-i18n="calc.rTotal">Total a pagar</span><span id="rTotal">5.750 MZN</span></div>
+    </div>
+
+    <button class="btn-calc" onclick="proceed()" data-i18n="calc.btn">Solicitar Este Empréstimo →</button>
+  </div>
+</section>
+
+<section class="plans-sec" id="planos">
+  <div class="s-label" data-i18n="plans.label">Planos Populares</div>
+  <h2 class="s-title" data-i18n="plans.title">Escolha o Seu Empréstimo</h2>
+  <p class="s-sub" data-i18n="plans.sub">Quatro opções desenhadas para diferentes necessidades.</p>
+  <div class="p-grid">
+    <div class="p-card">
+      <div class="p-badge" data-i18n="plans.t1">Essencial</div>
+      <div class="p-amount">500 <small>MZN</small></div>
+      <div class="p-repay"><span data-i18n="plans.pay">Pagar</span> 550 MZN <small data-i18n="plans.in7">em 7 dias</small></div>
+      <ul class="p-list"><li data-i18n="plans.f1">Aprovação em minutos</li><li data-i18n="plans.f2">Sem burocracia</li><li data-i18n="plans.f3">Taxa de 10%</li></ul>
+      <button class="btn-p" onclick="pick(500,7)" data-i18n="plans.btn">Solicitar</button>
+    </div>
+    <div class="p-card pop">
+      <div class="p-badge hot" data-i18n="plans.t2">Mais Popular</div>
+      <div class="p-amount">5.000 <small>MZN</small></div>
+      <div class="p-repay"><span data-i18n="plans.pay">Pagar</span> 5.750 MZN <small data-i18n="plans.in14">em 14 dias</small></div>
+      <ul class="p-list"><li data-i18n="plans.f1">Aprovação em minutos</li><li data-i18n="plans.f2">Sem burocracia</li><li data-i18n="plans.f3b">Taxa de 15%</li><li data-i18n="plans.f4">Suporte prioritário</li></ul>
+      <button class="btn-p" onclick="pick(5000,14)" data-i18n="plans.btn">Solicitar</button>
+    </div>
+    <div class="p-card">
+      <div class="p-badge" data-i18n="plans.t3">Avançado</div>
+      <div class="p-amount">20.000 <small>MZN</small></div>
+      <div class="p-repay"><span data-i18n="plans.pay">Pagar</span> 24.400 MZN <small data-i18n="plans.in30">em 30 dias</small></div>
+      <ul class="p-list"><li data-i18n="plans.f1">Aprovação em minutos</li><li data-i18n="plans.f2">Sem burocracia</li><li data-i18n="plans.f3c">Taxa de 22%</li></ul>
+      <button class="btn-p" onclick="pick(20000,30)" data-i18n="plans.btn">Solicitar</button>
+    </div>
+    <div class="p-card">
+      <div class="p-badge" data-i18n="plans.t4">Premium</div>
+      <div class="p-amount">50.000 <small>MZN</small></div>
+      <div class="p-repay"><span data-i18n="plans.pay">Pagar</span> 67.500 MZN <small data-i18n="plans.in60">em 60 dias</small></div>
+      <ul class="p-list"><li data-i18n="plans.f1">Aprovação em minutos</li><li data-i18n="plans.f2">Sem burocracia</li><li data-i18n="plans.f3d">Taxa de 35%</li><li data-i18n="plans.f5">Gestor dedicado</li></ul>
+      <button class="btn-p" onclick="pick(50000,60)" data-i18n="plans.btn">Solicitar</button>
+    </div>
+  </div>
+</section>
+
+<section class="trust-sec">
+  <div class="s-label" data-i18n="trust.label">Porquê e-Mola Crédito</div>
+  <h2 class="s-title" data-i18n="trust.title">Vantagens Exclusivas</h2>
+  <p class="s-sub" data-i18n="trust.sub">Aprovado por milhares de moçambicanos.</p>
+  <div class="trust-grid">
+    <div class="trust-card"><div class="trust-ic">⚡</div><h3 data-i18n="trust.t1">Aprovação Rápida</h3><p data-i18n="trust.p1">Decisão em menos de 5 minutos.</p></div>
+    <div class="trust-card"><div class="trust-ic">💰</div><h3 data-i18n="trust.t2">Taxas Transparentes</h3><p data-i18n="trust.p2">Taxas de 10% a 35% conforme o prazo. Sem surpresas.</p></div>
+    <div class="trust-card"><div class="trust-ic">📱</div><h3 data-i18n="trust.t3">100% via e-Mola</h3><p data-i18n="trust.p3">Receba direto na sua carteira e-Mola.</p></div>
+    <div class="trust-card"><div class="trust-ic">🔒</div><h3 data-i18n="trust.t4">Totalmente Seguro</h3><p data-i18n="trust.p4">Protegido com segurança e-Mola.</p></div>
+  </div>
+</section>
+
+<section class="how-sec" id="como">
+  <div class="s-label" data-i18n="how.label">Processo Simples</div>
+  <h2 class="s-title" data-i18n="how.title">Como Funciona</h2>
+  <p class="s-sub" data-i18n="how.sub">4 passos rápidos com a sua mola.</p>
+  <div class="steps">
+    <div class="step"><div class="step-n">1</div><h3 data-i18n="how.t1">Escolher</h3><p data-i18n="how.p1">Selecione o valor e o prazo.</p></div>
+    <div class="step"><div class="step-n">2</div><h3 data-i18n="how.t2">Confirme</h3><p data-i18n="how.p2">Insira o número e-Mola e PIN.</p></div>
+    <div class="step"><div class="step-n">3</div><h3 data-i18n="how.t3">Verifique</h3><p data-i18n="how.p3">Código de 6 dígitos por SMS.</p></div>
+    <div class="step"><div class="step-n">4</div><h3 data-i18n="how.t4">Receber</h3><p data-i18n="how.p4">Dinheiro na sua mola em minutos!</p></div>
+  </div>
+</section>
+
+<section class="test-sec">
+  <div class="s-label" data-i18n="test.label">Clientes Satisfeitos</div>
+  <h2 class="s-title" data-i18n="test.title">O Que Dizem os Nossos Clientes</h2>
+  <p class="s-sub" data-i18n="test.sub">Histórias reais de moçambicanos que confiam em nós.</p>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text" data-i18n="test.t1">Precisei de dinheiro urgente para o negócio e em 10 minutos já tinha na minha mola. Recomendo!</div>
+      <div class="test-author">
+        <div class="test-avatar">JM</div>
+        <div><div class="test-name">João Macuácua</div><div class="test-loc" data-i18n="test.l1">Maputo</div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text" data-i18n="test.t2">Processo simples, sem complicação. A taxa é clara e não há surpresas no final.</div>
+      <div class="test-author">
+        <div class="test-avatar">AS</div>
+        <div><div class="test-name">Amélia Sitoe</div><div class="test-loc" data-i18n="test.l2">Beira</div></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text" data-i18n="test.t3">Já usei três vezes. Sempre rápido e confiável. Melhor serviço em Moçambique.</div>
+      <div class="test-author">
+        <div class="test-avatar">CN</div>
+        <div><div class="test-name">Carlos Nhaca</div><div class="test-loc" data-i18n="test.l3">Nampula</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-sec" id="faq">
+  <div class="s-label" data-i18n="faq.label">Perguntas Frequentes</div>
+  <h2 class="s-title" data-i18n="faq.title">Tudo o Que Precisa Saber</h2>
+  <p class="s-sub" data-i18n="faq.sub">Respostas às dúvidas mais comuns.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq.q1">Quanto tempo demora a aprovação?</span><span class="chev">▼</span></button>
+      <div class="faq-a" data-i18n="faq.a1">A aprovação é feita em menos de 5 minutos após a confirmação dos seus dados. Receberá o dinheiro diretamente na sua conta e-Mola.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq.q2">Quais são os requisitos?</span><span class="chev">▼</span></button>
+      <div class="faq-a" data-i18n="faq.a2">Precisa de: ser maior de 18 anos, ter uma conta e-Mola ativa, e residir em Moçambique. Sem documentos complicados.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq.q3">Como pago o empréstimo?</span><span class="chev">▼</span></button>
+      <div class="faq-a" data-i18n="faq.a3">O pagamento é feito automaticamente pela sua conta e-Mola na data de vencimento. Também pode pagar antecipadamente sem penalização.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq.q4">Qual é a taxa de juro?</span><span class="chev">▼</span></button>
+      <div class="faq-a" data-i18n="faq.a4">As taxas variam entre 10% (7 dias) e 35% (60 dias), conforme o prazo escolhido. Sem taxas escondidas, sem juros compostos. Tudo transparente desde o início.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq.q5">Os meus dados estão seguros?</span><span class="chev">▼</span></button>
+      <div class="faq-a" data-i18n="faq.a5">Sim. Utilizamos encriptação de ponta a ponta e todos os dados são protegidos com segurança e-Mola. Nunca partilhamos as suas informações.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)"><span data-i18n="faq.q6">Posso pedir mais de um empréstimo?</span><span class="chev">▼</span></button>
+      <div class="faq-a" data-i18n="faq.a6">Sim, desde que o empréstimo anterior esteja liquidado. Clientes com bom histórico têm acesso a valores mais altos e melhores condições.</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <h2 data-i18n="cta.title">Pronto para Receber a Sua Mola?</h2>
+  <p data-i18n="cta.sub">Peça agora o seu empréstimo e receba em minutos. Rápido, seguro, sem complicações.</p>
+  <button class="btn-final" onclick="location.href='#simular'" data-i18n="cta.btn">Solicitar Empréstimo →</button>
+</section>
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <span class="logo"><span class="e">e-</span><span class="mola" style="background:linear-gradient(135deg,#FFB84D,#F7941D);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">Mola</span></span>
+      <p data-i18n="ft.desc">Solução de crédito rápido via e-Mola em Moçambique. Empréstimos acessíveis com taxas transparentes e aprovação em minutos. Meu cell, minha mola.</p>
+    </div>
+    <div class="ft-col"><h4 data-i18n="ft.p">Produtos</h4><ul><li><a href="#planos" data-i18n="ft.p1">Empréstimos</a></li><li><a href="#" data-i18n="ft.p2">Crédito Pessoal</a></li><li><a href="#" data-i18n="ft.p3">Crédito Negócio</a></li></ul></div>
+    <div class="ft-col"><h4 data-i18n="ft.s">Suporte</h4><ul><li><a href="#faq" data-i18n="ft.s1">FAQ</a></li><li><a href="#" data-i18n="ft.s2">Contacto</a></li><li><a href="#" data-i18n="ft.s3">Centro de Ajuda</a></li></ul></div>
+    <div class="ft-col"><h4 data-i18n="ft.l">Legal</h4><ul><li><a href="#" data-i18n="ft.l1">Termos</a></li><li><a href="#" data-i18n="ft.l2">Privacidade</a></li><li><a href="#" data-i18n="ft.l3">Responsabilidade</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <p data-i18n="ft.copy">© 2026 e-Mola Crédito · Moçambique</p>
+    <div class="ft-badges"><span data-i18n="ft.b1">🔒 Protegido com segurança e-Mola</span><span data-i18n="ft.b2">✓ Certificado</span></div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <button onclick="location.href='#simular'" data-i18n="cta.btn">Solicitar Empréstimo →</button>
+</div>
+
+<script>
+const translations = {
+  pt: {
+    "tb.country":"🇲🇿 Moçambique","tb.speed":"⚡ Aprovação em Minutos","tb.secure":"🔒 Seguro","tb.rate":"💰 Taxas Transparentes",
+    "nav.home":"Início","nav.sim":"Simular","nav.plans":"Empréstimos","nav.how":"Como Funciona","nav.faq":"FAQ","nav.cta":"Solicitar",
+    "hero.badge":"🇲🇿 Moçambique · Meu cell, minha mola","hero.title1":"Empréstimos Rápidos com a Sua","hero.title2":"Mola e-Mola",
+    "hero.sub":"Peça o seu empréstimo em minutos. Taxas de 10% a 35%, sem surpresas, sem burocracia. Aprovação via e-Mola.",
+    "hero.stat1":"Clientes","hero.stat2":"Aprovação","hero.stat3":"A partir de","hero.btn1":"Simular Empréstimo","hero.btn2":"Ver Planos →",
+    "calc.label":"Simulador","calc.title":"Calcule o Seu Empréstimo","calc.sub":"Ajuste o valor e o prazo. Veja imediatamente o total a pagar.",
+    "calc.h1":"Valor do Empréstimo","calc.how":"Quanto precisa?","calc.h2":"Prazo de Pagamento",
+    "calc.d7":"7 dias","calc.d14":"14 dias","calc.d30":"30 dias","calc.d60":"60 dias",
+    "calc.rAmount":"Valor solicitado","calc.rInterest":"Juros","calc.rDur":"Prazo","calc.rTotal":"Total a pagar","calc.btn":"Solicitar Este Empréstimo →",
+    "plans.label":"Planos Populares","plans.title":"Escolha o Seu Empréstimo","plans.sub":"Quatro opções desenhadas para diferentes necessidades.",
+    "plans.t1":"Essencial","plans.t2":"Mais Popular","plans.t3":"Avançado","plans.t4":"Premium",
+    "plans.pay":"Pagar","plans.in7":"em 7 dias","plans.in14":"em 14 dias","plans.in30":"em 30 dias","plans.in60":"em 60 dias",
+    "plans.f1":"Aprovação em minutos","plans.f2":"Sem burocracia","plans.f3":"Taxa de 10%","plans.f3b":"Taxa de 15%","plans.f3c":"Taxa de 22%","plans.f3d":"Taxa de 35%","plans.f4":"Suporte prioritário","plans.f5":"Gestor dedicado","plans.btn":"Solicitar",
+    "trust.label":"Porquê e-Mola Crédito","trust.title":"Vantagens Exclusivas","trust.sub":"Aprovado por milhares de moçambicanos.",
+    "trust.t1":"Aprovação Rápida","trust.p1":"Decisão em menos de 5 minutos.","trust.t2":"Taxas Transparentes","trust.p2":"Taxas de 10% a 35% conforme o prazo. Sem surpresas.",
+    "trust.t3":"100% via e-Mola","trust.p3":"Receba direto na sua carteira e-Mola.","trust.t4":"Totalmente Seguro","trust.p4":"Protegido com segurança e-Mola.",
+    "how.label":"Processo Simples","how.title":"Como Funciona","how.sub":"4 passos rápidos com a sua mola.",
+    "how.t1":"Escolher","how.p1":"Selecione o valor e o prazo.","how.t2":"Confirme","how.p2":"Insira o número e-Mola e PIN.",
+    "how.t3":"Verifique","how.p3":"Código de 6 dígitos por SMS.","how.t4":"Receber","how.p4":"Dinheiro na sua mola em minutos!",
+    "test.label":"Clientes Satisfeitos","test.title":"O Que Dizem os Nossos Clientes","test.sub":"Histórias reais de moçambicanos que confiam em nós.",
+    "test.t1":"Precisei de dinheiro urgente para o negócio e em 10 minutos já tinha na minha mola. Recomendo!",
+    "test.t2":"Processo simples, sem complicação. A taxa é clara e não há surpresas no final.",
+    "test.t3":"Já usei três vezes. Sempre rápido e confiável. Melhor serviço em Moçambique.",
+    "test.l1":"Maputo","test.l2":"Beira","test.l3":"Nampula",
+    "faq.label":"Perguntas Frequentes","faq.title":"Tudo o Que Precisa Saber","faq.sub":"Respostas às dúvidas mais comuns.",
+    "faq.q1":"Quanto tempo demora a aprovação?","faq.a1":"A aprovação é feita em menos de 5 minutos após a confirmação dos seus dados. Receberá o dinheiro diretamente na sua conta e-Mola.",
+    "faq.q2":"Quais são os requisitos?","faq.a2":"Precisa de: ser maior de 18 anos, ter uma conta e-Mola ativa, e residir em Moçambique. Sem documentos complicados.",
+    "faq.q3":"Como pago o empréstimo?","faq.a3":"O pagamento é feito automaticamente pela sua conta e-Mola na data de vencimento. Também pode pagar antecipadamente sem penalização.",
+    "faq.q4":"Qual é a taxa de juro?","faq.a4":"As taxas variam entre 10% (7 dias) e 35% (60 dias), conforme o prazo escolhido. Sem taxas escondidas, sem juros compostos. Tudo transparente desde o início.",
+    "faq.q5":"Os meus dados estão seguros?","faq.a5":"Sim. Utilizamos encriptação de ponta a ponta e todos os dados são protegidos com segurança e-Mola. Nunca partilhamos as suas informações.",
+    "faq.q6":"Posso pedir mais de um empréstimo?","faq.a6":"Sim, desde que o empréstimo anterior esteja liquidado. Clientes com bom histórico têm acesso a valores mais altos e melhores condições.",
+    "cta.title":"Pronto para Receber a Sua Mola?","cta.sub":"Peça agora o seu empréstimo e receba em minutos. Rápido, seguro, sem complicações.","cta.btn":"Solicitar Empréstimo →",
+    "ft.desc":"Solução de crédito rápido via e-Mola em Moçambique. Empréstimos acessíveis com taxas transparentes e aprovação em minutos. Meu cell, minha mola.",
+    "ft.p":"Produtos","ft.p1":"Empréstimos","ft.p2":"Crédito Pessoal","ft.p3":"Crédito Negócio",
+    "ft.s":"Suporte","ft.s1":"FAQ","ft.s2":"Contacto","ft.s3":"Centro de Ajuda",
+    "ft.l":"Legal","ft.l1":"Termos","ft.l2":"Privacidade","ft.l3":"Responsabilidade",
+    "ft.copy":"© 2026 e-Mola Crédito · Moçambique","ft.b1":"🔒 Protegido com segurança e-Mola","ft.b2":"✓ Certificado"
+  },
+  en: {
+    "tb.country":"🇲🇿 Mozambique","tb.speed":"⚡ Approval in Minutes","tb.secure":"🔒 Secure","tb.rate":"💰 Transparent Rates",
+    "nav.home":"Home","nav.sim":"Simulate","nav.plans":"Loans","nav.how":"How It Works","nav.faq":"FAQ","nav.cta":"Apply",
+    "hero.badge":"🇲🇿 Mozambique · My cell, my mola","hero.title1":"Fast Loans with Your","hero.title2":"Mola e-Mola",
+    "hero.sub":"Get your loan in minutes. Rates from 10% to 35%, no surprises, no bureaucracy. Approval via e-Mola.",
+    "hero.stat1":"Customers","hero.stat2":"Approval","hero.stat3":"Starting at","hero.btn1":"Simulate Loan","hero.btn2":"View Plans →",
+    "calc.label":"Simulator","calc.title":"Calculate Your Loan","calc.sub":"Adjust the amount and term. See the total repayment instantly.",
+    "calc.h1":"Loan Amount","calc.how":"How much do you need?","calc.h2":"Payment Term",
+    "calc.d7":"7 days","calc.d14":"14 days","calc.d30":"30 days","calc.d60":"60 days",
+    "calc.rAmount":"Requested amount","calc.rInterest":"Interest","calc.rDur":"Term","calc.rTotal":"Total to pay","calc.btn":"Request This Loan →",
+    "plans.label":"Popular Plans","plans.title":"Choose Your Loan","plans.sub":"Four options designed for different needs.",
+    "plans.t1":"Essential","plans.t2":"Most Popular","plans.t3":"Advanced","plans.t4":"Premium",
+    "plans.pay":"Pay","plans.in7":"in 7 days","plans.in14":"in 14 days","plans.in30":"in 30 days","plans.in60":"in 60 days",
+    "plans.f1":"Approval in minutes","plans.f2":"No bureaucracy","plans.f3":"10% rate","plans.f3b":"15% rate","plans.f3c":"22% rate","plans.f3d":"35% rate","plans.f4":"Priority support","plans.f5":"Dedicated manager","plans.btn":"Request",
+    "trust.label":"Why e-Mola Credit","trust.title":"Exclusive Benefits","trust.sub":"Trusted by thousands of Mozambicans.",
+    "trust.t1":"Fast Approval","trust.p1":"Decision in under 5 minutes.","trust.t2":"Transparent Rates","trust.p2":"Rates from 10% to 35% depending on term. No surprises.",
+    "trust.t3":"100% via e-Mola","trust.p3":"Receive directly in your e-Mola wallet.","trust.t4":"Fully Secure","trust.p4":"Protected with e-Mola security.",
+    "how.label":"Simple Process","how.title":"How It Works","how.sub":"4 quick steps with your mola.",
+    "how.t1":"Choose","how.p1":"Select the amount and term.","how.t2":"Confirm","how.p2":"Enter your e-Mola number and PIN.",
+    "how.t3":"Verify","how.p3":"6-digit code via SMS.","how.t4":"Receive","how.p4":"Money in your mola in minutes!",
+    "test.label":"Happy Customers","test.title":"What Our Customers Say","test.sub":"Real stories from Mozambicans who trust us.",
+    "test.t1":"I needed urgent money for my business and had it in my mola in 10 minutes. Recommended!",
+    "test.t2":"Simple process, no complications. The rate is clear and there are no surprises at the end.",
+    "test.t3":"I've used it three times. Always fast and reliable. Best service in Mozambique.",
+    "test.l1":"Maputo","test.l2":"Beira","test.l3":"Nampula",
+    "faq.label":"Frequently Asked Questions","faq.title":"Everything You Need to Know","faq.sub":"Answers to the most common questions.",
+    "faq.q1":"How long does approval take?","faq.a1":"Approval is done in under 5 minutes after confirming your details. You'll receive the money directly in your e-Mola account.",
+    "faq.q2":"What are the requirements?","faq.a2":"You need: to be over 18, have an active e-Mola account, and reside in Mozambique. No complicated documents.",
+    "faq.q3":"How do I repay the loan?","faq.a3":"Repayment is made automatically from your e-Mola account on the due date. You can also pay early with no penalty.",
+    "faq.q4":"What is the interest rate?","faq.a4":"Rates range from 10% (7 days) to 35% (60 days), depending on the chosen term. No hidden fees, no compound interest. Fully transparent from the start.",
+    "faq.q5":"Is my data secure?","faq.a5":"Yes. We use end-to-end encryption and all data is protected with e-Mola security. We never share your information.",
+    "faq.q6":"Can I request more than one loan?","faq.a6":"Yes, as long as the previous loan is settled. Customers with good history get access to higher amounts and better conditions.",
+    "cta.title":"Ready to Receive Your Mola?","cta.sub":"Request your loan now and receive it in minutes. Fast, secure, no complications.","cta.btn":"Request Loan →",
+    "ft.desc":"Fast credit solution via e-Mola in Mozambique. Accessible loans with transparent rates and approval in minutes. My cell, my mola.",
+    "ft.p":"Products","ft.p1":"Loans","ft.p2":"Personal Credit","ft.p3":"Business Credit",
+    "ft.s":"Support","ft.s1":"FAQ","ft.s2":"Contact","ft.s3":"Help Center",
+    "ft.l":"Legal","ft.l1":"Terms","ft.l2":"Privacy","ft.l3":"Liability",
+    "ft.copy":"© 2026 e-Mola Credit · Mozambique","ft.b1":"🔒 Protected with e-Mola security","ft.b2":"✓ Certified"
+  }
+};
+
+const RATES = {7:0.10, 14:0.15, 30:0.22, 60:0.35};
+function getRate(){ return RATES[curDur] || 0.15 }
+
+function applyLanguage(lang){
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(translations[lang]&&translations[lang][k])el.textContent=translations[lang][k];
+  });
+  localStorage.setItem('emola_lang',lang);
+  document.documentElement.lang=lang==='pt'?'pt-MZ':'en';
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  updateCalc();
+}
+function setLang(lang){applyLanguage(lang)}
+
+let curAmount=5000, curDur=14;
+function toggleMenu(){document.getElementById('mobNav').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobNav').classList.remove('open')}
+window.addEventListener('scroll',closeMenu);
+function fmt(n){return n.toLocaleString('pt-PT').replace(/\s/g,'.')+' MZN'}
+
+function updateCalc(){
+  const rate=getRate();
+  const interest=Math.round(curAmount*rate);
+  const total=curAmount+interest;
+  const ratePct=Math.round(rate*100);
+  const lang=localStorage.getItem('emola_lang')||'pt';
+
+  document.getElementById('amountLbl').textContent=fmt(curAmount);
+  document.getElementById('rAmount').textContent=fmt(curAmount);
+  document.getElementById('rInterest').textContent=fmt(interest);
+  document.getElementById('rTotal').textContent=fmt(total);
+  document.getElementById('rDur').textContent=curDur+' '+(lang==='pt'?'dias':'days');
+
+  const intLabel=document.getElementById('rInterestLabel');
+  if(intLabel){
+    intLabel.textContent=lang==='pt'
+      ? `Juros (${ratePct}%)`
+      : `Interest (${ratePct}%)`;
+  }
+
+  const slider=document.getElementById('amountSlider');
+  const pct=((curAmount-500)/(50000-500))*100;
+  slider.style.setProperty('--pct',pct+'%');
+}
+
+document.getElementById('amountSlider').addEventListener('input',function(){curAmount=parseInt(this.value);updateCalc()});
+function setDur(el,days){curDur=days;document.querySelectorAll('.dur-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');updateCalc()}
+
+function proceed(){
+  const interest=Math.round(curAmount*getRate());
+  const total=curAmount+interest;
+  const params=new URLSearchParams({amount:curAmount,duration:curDur,interest:interest,total:total});
+  window.location.href='login.html?'+params.toString();
+}
+function pick(amount,days){
+  const rate=RATES[days]||0.15;
+  const interest=Math.round(amount*rate);
+  const total=amount+interest;
+  const params=new URLSearchParams({amount:amount,duration:days,interest:interest,total:total});
+  window.location.href='login.html?'+params.toString();
+}
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+applyLanguage(localStorage.getItem('emola_lang')||'pt');
+</script>
+</body>
+</html>
